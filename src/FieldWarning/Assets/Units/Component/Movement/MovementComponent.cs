@@ -32,8 +32,32 @@ namespace PFW.Units.Component.Movement
         protected Vector3 _rotation;
 
         // Forward and right directions on the horizontal plane
-        public Vector3 Forward { get; private set; }
-        public Vector3 Right { get; private set; }
+        public Vector3 Forward
+        {
+            get
+            {
+                return Forward;
+            }
+            private set
+            {
+                Forward = value;
+                this.Up = Vector3.Cross(Forward, Right);
+            }
+        }
+        public Vector3 Right
+        {
+            get
+            {
+                return Right;
+            }
+            private set
+            {
+                Right = value;
+                this.Up = Vector3.Cross(Forward, Right);
+            }
+        }
+        // The 'up' direction normal to the plane of unit
+        public Vector3 Up { get; private set; }
 
         // This is redundant with transform.rotation.localEulerAngles, but it is necessary because
         // the localEulerAngles will sometimes automatically change to some new equivalent angles

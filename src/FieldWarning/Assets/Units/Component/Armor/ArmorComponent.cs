@@ -128,8 +128,7 @@ namespace PFW.Units.Component.Armor
             Vector3 displacementToFiringUnit = -displacementToThis;
 
             // Project this vector to the horizontal plane of the unit
-            Vector3 planeNormal = Vector3.Cross(Unit.Forward, Unit.Right);
-            Vector3 incomingFire = Vector3.ProjectOnPlane(displacementToFiringUnit, planeNormal);
+            Vector3 incomingFire = Vector3.ProjectOnPlane(displacementToFiringUnit, Unit.Up);
 
             // Calculate the angle, since Unity always return a positive value, we have
             // 0 to 45 deg => front
