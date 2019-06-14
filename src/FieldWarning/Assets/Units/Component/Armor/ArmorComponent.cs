@@ -31,11 +31,9 @@ namespace PFW.Units.Component.Armor
         public MovementComponent Unit { get; private set; }
         private PlatoonBehaviour _platoon;
         private HealthComponent _healthComponent;
-        
-        
 
         /// <summary>
-        /// An array of ArmorAttributes to store armor values 
+        /// An array of ArmorAttributes to store armor values
         /// on front / side / rear/ top respectively
         /// </summary>
         public UnitData.ArmorAttributes[] ArmorData = new UnitData.ArmorAttributes[4];
@@ -151,7 +149,7 @@ namespace PFW.Units.Component.Armor
 
             return ArmorData[index];
         }
-        
+
         public UnitData.ArmorAttributes DetermineSideOfImpact()
         {
             // When no displacement vector is supplied, the damage is dealt to the top armor
@@ -164,7 +162,7 @@ namespace PFW.Units.Component.Armor
         public DamageData.Target ConstructTargetStruct(UnitData.ArmorAttributes armorOfImpact)
         {
             DamageData.Target target = new DamageData.Target();
-            
+
             target.Armor = armorOfImpact.Armor;
             target.EraData = armorOfImpact.EraData;
 
